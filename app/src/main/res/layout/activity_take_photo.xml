@@ -1,0 +1,137 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root_layout"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TakePhotoActivity">
+
+    <RelativeLayout
+        android:id="@+id/take_photo_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible">
+        <com.example.terry.mycamera.camare.CameraPreview
+            android:id="@+id/cameraPreview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <com.example.terry.mycamera.camare.FocusView
+            android:id="@+id/view_focus"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_centerInParent="true"/>
+        <!--网格参考线-->
+        <com.example.terry.mycamera.camare.ReferenceLine
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:id="@+id/hint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_centerInParent="true"
+            android:textColor="#00bff3"
+            android:textSize="18sp"
+            android:lineSpacingMultiplier="2.0"
+            android:text="@string/takephoto"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:padding="0dp">
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:padding="5dp"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/ic_close_selector"
+                android:layout_alignParentRight="true"
+                android:onClick="close"
+                android:id="@+id/imageView5" />
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:onClick="takePhoto"
+                android:padding="1dp"
+                android:src="@drawable/ic_takephoto_selector"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentTop="true"
+                android:id="@+id/imageView6" />
+
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:id="@+id/light"
+                android:layout_marginTop="10dp"
+                android:src="@mipmap/light"
+                android:onClick="openlight"
+                android:visibility="visible"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true" />
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:id="@+id/nolight"
+                android:visibility="gone"
+                android:layout_marginTop="10dp"
+                android:src="@mipmap/lightdown"
+                android:clickable="true"
+                android:onClick="offlight"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true" />
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/cropper_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#000000"
+        android:visibility="gone">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+            <com.example.terry.mycamera.Crop.CropImageView
+                android:id="@+id/CropImageView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center" />
+            <TextView
+                android:id="@+id/crop_hint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:textColor="#ffffff"
+                android:textSize="18sp"
+                android:layout_marginBottom="10dp"
+                android:text="@string/cropimage"/>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="12dp">
+            <ImageView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:padding="12dp"
+                android:src="@drawable/ic_close_selector"
+                android:onClick="closeCropper"/>
+            <ImageView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_alignParentRight="true"
+                android:onClick="startCropper"
+                android:padding="12dp"
+                android:src="@drawable/ic_ok_selector"/>
+        </RelativeLayout>
+    </LinearLayout>
+</RelativeLayout>

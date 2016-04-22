@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">MyCamera</string>
+    <string name="takephoto">请横屏拍照\n题目文字尽量与参考线对齐</string>
+    <string name="cropimage">选择您需要提问的题目</string>
+</resources>
