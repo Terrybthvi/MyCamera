@@ -1,4 +1,4 @@
-#MyCamera
+# MyCamera
 最近发现不同手机，调用系统相机效果不太好,，所以学习Android 的相机原理，自定义了一个Android相机。看了这篇博客，相信大家都会写一个自己的相机。对比了一下小猿搜题、学霸君、作业帮、阿凡题这四款app的拍照功能，个人感觉小猿搜题的体验要好一些，因为从主界面进入拍照界面，连个界面没有一个旋转的过渡，而学霸君就有一个过渡，有一丝丝的影响体验。也就是说学霸君的拍照界面是横屏的，在activity的onCreate方法里面调用了setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE)来设置全屏，而切换界面的时候又从竖屏切换为横屏，就会有个过渡的效果，影响了体验。
 
 项目地址：https://github.com/Terrybthvi/MyCamera
@@ -56,8 +56,8 @@ surfaceDestroyed();
 4、Activity调用相机
 
 actiity中注册了SensorEventListener，也就是使用传感器监听用户手机的移动，如果有一定距离的移动，则自动聚焦，这样体验好一点。
-
-<span style="font-family:SimHei;font-size:18px;">package com.example.terry.mycamera;
+```
+package com.example.terry.mycamera;
 
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
@@ -372,9 +372,10 @@ public void offlight(View v)
     @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
     }
-}</span>
+}
+```
 5、添加计算焦点及测光区域、拍照后图片旋转以及检测摄像头是否可用
-
+```
 public class Utils {
 
     public static DisplayMetrics getScreenWH(Context context) {
@@ -499,4 +500,5 @@ public class Utils {
 
 
 }
+```
 
